@@ -1,0 +1,7 @@
+﻿RewriteEngine On
+RewriteRule strona-główna 	pages/home.php
+RewriteRule rejestracja 	pages/register.php
+RewriteRule klienci 		pages/clients.php
+RewriteRule zamówienia 		pages/orders.php
+RewriteRule profil		 	pages/profile.php
+RewriteRule produkty 		pages/products.php
