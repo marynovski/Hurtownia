@@ -9,7 +9,5 @@ PageLoader::ModuleLoader("home");
 PageLoader::ModuleLoader("footer");
 PageLoader::ModuleLoader("html_end");
 
-
-
 ?>
 

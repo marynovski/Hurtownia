@@ -36,18 +36,29 @@ class PageLoader {
             case 'nav':
                 echo        '<nav id="nav">Nawigacja:<br>'
                         .   '   <ul>'
-                        .   '       <li><a href="strona-główna">Strona Główna   </a></li>'
-                        .   '       <li><a href="rejestracja">  Rejestracja     </a></li>'
-                        .   '       <li><a href="profil">       Profil          </a></li>'
-                        .   '       <li><a href="klienci">      Klienci         </a></li>'
-                        .   '       <li><a href="produkty">     Produkty        </a></li>'
-                        .   '       <li><a href="zamówienia">   Zamówienia      </a></li>'
+                        .   '       <li><a href="strona-główna" title="Strona główna">          Strona Główna   </a></li>'
+                        .   '       <li><a href="profil" title="Twój profil">                   Profil          </a></li>'
+                        .   '       <li><a href="klienci" title="Zarządzanie klientami">        Klienci         </a></li>'
+                        .   '       <li><a href="produkty" title="Zarządzanie produktami">      Produkty        </a></li>'
+                        .   '       <li><a href="zamówienia" title="Zarządzanie zamówieniami">  Zamówienia      </a></li>'
                         .   '   </ul>'
                         .   '</nav>';
                 break;
              
             case 'home':
-                echo        '<main>Home</main>';
+                echo        '<main>'
+                        .   '   <header><h2>Witaj w SZZ</h2></header>'
+                        .   '   <h3>Zaloguj się, aby móc korzystać z funkcji aplikacji!</h3>'
+                        .   '   <form action="" method="post">'
+                        .   '       <label for="login">Login:</label>'
+                        .   '       <input id="login" type="text" name="login"><br><br>'
+                        .   '       <label for="password">Hasło:</label>'
+                        .   '       <input id="password" type="password" name="password"><br><br>'
+                        .   '       <input type="submit" value="Zaloguj się">'
+                        .   '   </form>'
+                        .   '   <a href="rejestracja">Nie masz konta? Stwórz je!</a><br>'
+                        .   '   <a href="">Zapomniałeś hasła?</a>'
+                        .   '</main>';
                 break;
             
             case 'clients':
@@ -67,7 +78,37 @@ class PageLoader {
                 break;
             
             case 'register':
-                echo        '<main>Rejestracja</main>';
+                echo        '<main>'
+                        .   '   <header><h2>Tworzenie konta</h2></header>'
+                        .   '   <form action="" method="post">'
+                        
+                        .   '       <label for="login">Login:</label>'
+                        .   '       <input id="login" type="text" name="login"><br><br>'
+                        
+                        .   '       <label for="password">Hasło:</label>'
+                        .   '       <input id="password" type="password" name="password"><br><br>'
+                       
+                        .   '       <label for="passwordrep">Powtórz hasło:</label>'
+                        .   '       <input id="passwordrep" type="password" name="password"><br><br>'
+                        
+                        .   '       <label for="name">Imię:</label>'
+                        .   '       <input id="name" type="text" name="name"><br><br>'
+                        
+                        .   '       <label for="surname">Nazwisko:</label>'
+                        .   '       <input id="surname" type="text" name="surname"><br><br>'
+                       
+                        .   '       <label for="adress">Adres:</label>'
+                        .   '       <input id="adress" type="text" name="adress"><br><br>'
+                        
+                        .   '       <label for="mailcode">Kod pocztowy:</label>'
+                        .   '       <input id="mailcode" type="text" name="mailcode"><br><br>'
+                        
+                        .   '       <label for="city">Miejscowość:</label>'
+                        .   '       <input id="city" type="text" name="city"><br><br>'
+                        
+                        .   '       <input type="submit" value="Utwórz konto">'
+                        .   '   </form>'
+                        .   '</main>';
                 break;
             
             case 'footer':
