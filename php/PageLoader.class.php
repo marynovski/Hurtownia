@@ -30,11 +30,20 @@ class PageLoader {
                 break;
             
             case 'header':
-                echo        '<header><h1>System zarządzania zamówieniami</h1></header>';
+                echo        '<header id="header"><h1>System zarządzania zamówieniami</h1></header>';
                 break;
             
             case 'nav':
-                echo        '<nav>Nawigacja</nav>';
+                echo        '<nav id="nav">Nawigacja:<br>'
+                        .   '   <ul>'
+                        .   '       <li><a href="strona-główna">Strona Główna   </a></li>'
+                        .   '       <li><a href="rejestracja">  Rejestracja     </a></li>'
+                        .   '       <li><a href="profil">       Profil          </a></li>'
+                        .   '       <li><a href="klienci">      Klienci         </a></li>'
+                        .   '       <li><a href="produkty">     Produkty        </a></li>'
+                        .   '       <li><a href="zamówienia">   Zamówienia      </a></li>'
+                        .   '   </ul>'
+                        .   '</nav>';
                 break;
              
             case 'home':
@@ -44,9 +53,25 @@ class PageLoader {
             case 'clients':
                 echo        '<main>Klienci</main>';
                 break;
-             
+            
+            case 'products':
+                echo        '<main>Produkty</main>';
+                break;
+            
+            case 'orders':
+                echo        '<main>Zamówienia</main>';
+                break;
+            
+            case 'profile':
+                echo        '<main>Profil</main>';
+                break;
+            
+            case 'register':
+                echo        '<main>Rejestracja</main>';
+                break;
+            
             case 'footer':
-                echo        '<footer>Kamil Marynowski FatApp &copy; 2018</footer>';
+                echo        '<footer id="footer">Kamil Marynowski FatApp &copy; 2018</footer>';
                 break;
             
             case 'html_end':
