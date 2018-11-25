@@ -1,5 +1,7 @@
 <?php
-
+ include_once("../php/User.class.php");
+  include_once("../php/Product.class.php");
+ include_once("../php/Database.class.php");
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -65,7 +67,13 @@ class PageLoader {
                                     Klienci
                                 </header>
                                 <section id="table-header-section">
-                                    <table id="header-table">
+                                    <!--<table id="header-table">
+                                        
+                                    </table>-->
+                                </section>
+                                <section id="table-section">
+                                    <table id="client-table">
+                                       
                                         <tr class="header-table-row">
                                             <td class="client-table-first-td">Nr</td>
                                             <td class="client-table-second-td">Imię</td>
@@ -77,72 +85,15 @@ class PageLoader {
                                             <td class="client-table-8th-td">Rola</td>
                                             <td class="client-table-9th-td">Edytuj</td>
                                             <td class="client-table-10th-td">Usuń</td>
-                                        </tr>
-                                    </table>
-                                </section>
-                                <section id="table-section">
-                                    <table id="client-table">
-                                        <tr class="client-table-row">
-                                            <td class="client-table-first-td">999</td>
-                                            <td class="client-table-second-td">Maksymilianolek</td>
-                                            <td class="client-table-third-td">Marynowski-kassie-kościukiewicz</td>
-                                            <td class="client-table-4th-td">Powstańców Śląskich 11a/103</td>
-                                            <td class="client-table-5th-td">Kamieniec Wrocławski</td>
-                                            <td class="client-table-6th-td">731 041 224</td>
-                                            <td class="client-table-7th-td">maksymilian.marynovski@gmail.com</td>
-                                            <td class="client-table-8th-td">Admin</td>
-                                            <td class="client-table-9th-td"><a href="" title="Zmień dane"><button class="submit-button-client-table" type="button">Edytuj</button></a></td>
-                                            <td class="client-table-10th-td"><a href="" title"Usuń"><button class="submit-button-client-table" type="button">Usuń</button></a></td>
-                                        </tr>
-                                        <tr class="client-table-row">
-                                            <td class="client-table-first-td">1</td>
-                                            <td class="client-table-second-td">Kamil</td>
-                                            <td class="client-table-third-td">Marynowski</td>
-                                            <td class="client-table-4th-td">Wojska Polskiego 1/13</td>
-                                            <td class="client-table-5th-td">Czernica</td>
-                                            <td class="client-table-6th-td">731 041 224</td>
-                                            <td class="client-table-7th-td">marynovski@gmail.com</td>
-                                            <td class="client-table-8th-td">Admin</td>
-                                            <td class="client-table-9th-td"><a href="" title="Zmień dane"><button class="submit-button-client-table" type="button">Edytuj</button></a></td>
-                                            <td class="client-table-10th-td"><a href="" title"Usuń"><button class="submit-button-client-table" type="button">Usuń</button></a></td>
-                                        </tr>
-                                        <tr class="client-table-row">
-                                            <td class="client-table-first-td">999</td>
-                                            <td class="client-table-second-td">Maksymilianolek</td>
-                                            <td class="client-table-third-td">Marynowski-kassie-kościukiewicz</td>
-                                            <td class="client-table-4th-td">Powstańców Śląskich 11a/103</td>
-                                            <td class="client-table-5th-td">Kamieniec Wrocławski</td>
-                                            <td class="client-table-6th-td">731 041 224</td>
-                                            <td class="client-table-7th-td">maksymilian.marynovski@gmail.com</td>
-                                            <td class="client-table-8th-td">Admin</td>
-                                            <td class="client-table-9th-td"><a href="" title="Zmień dane"><button class="submit-button-client-table" type="button">Edytuj</button></a></td>
-                                            <td class="client-table-10th-td"><a href="" title"Usuń"><button class="submit-button-client-table" type="button">Usuń</button></a></td>
-                                        </tr>
-                                        <tr class="client-table-row">
-                                            <td class="client-table-first-td">999</td>
-                                            <td class="client-table-second-td">Maksymilianolek</td>
-                                            <td class="client-table-third-td">Marynowski-kassie-kościukiewicz</td>
-                                            <td class="client-table-4th-td">Powstańców Śląskich 11a/103</td>
-                                            <td class="client-table-5th-td">Kamieniec Wrocławski</td>
-                                            <td class="client-table-6th-td">731 041 224</td>
-                                            <td class="client-table-7th-td">maksymilian.marynovski@gmail.com</td>
-                                            <td class="client-table-8th-td">Admin</td>
-                                            <td class="client-table-9th-td"><a href="" title="Zmień dane"><button class="submit-button-client-table" type="button">Edytuj</button></a></td>
-                                            <td class="client-table-10th-td"><a href="" title"Usuń"><button class="submit-button-client-table" type="button">Usuń</button></a></td>
-                                        </tr>
-                                        <tr class="client-table-row">
-                                            <td class="client-table-first-td">999</td>
-                                            <td class="client-table-second-td">Maksymilianolek</td>
-                                            <td class="client-table-third-td">Marynowski-kassie-kościukiewicz</td>
-                                            <td class="client-table-4th-td">Powstańców Śląskich 11a/103</td>
-                                            <td class="client-table-5th-td">Kamieniec Wrocławski</td>
-                                            <td class="client-table-6th-td">731 041 224</td>
-                                            <td class="client-table-7th-td">maksymilian.marynovski@gmail.com</td>
-                                            <td class="client-table-8th-td">Admin</td>
-                                            <td class="client-table-9th-td"><a href="" title="Zmień dane"><button class="submit-button-client-table" type="button">Edytuj</button></a></td>
-                                            <td class="client-table-10th-td"><a href="" title"Usuń"><button class="submit-button-client-table" type="button">Usuń</button></a></td>
-                                        </tr>
-                                    </table>
+                                        </tr>';
+                
+                                        $db = new DataBase("localhost", "root", "", "hurtownia");
+                                        $row = $db->selectFromDatabase("SELECT * FROM users");
+                                        for($i = 1; $i<=$row[1]; $i++){
+                                            $usr[$i] = new User($row[0][$i-1]['id'], $row[0][$i-1]['name'], $row[0][$i-1]['surname'], $row[0][$i-1]['adress'], $row[0][$i-1]['city'], $row[0][$i-1]['phone'], $row[0][$i-1]['email'], $row[0][$i-1]['role']);
+                                            $usr[$i]->makeUserTableRow($i);
+                                        }                                     
+                                    echo '</table>
                                 </section>
                                 <section id="client-buttons-section">
                                     <div class="div-285">
@@ -184,19 +135,16 @@ class PageLoader {
                                     </table>
                                 </section>
                                 <section id="table-section">
-                                    <table id="client-table">
-                                        <tr class="client-table-row">
-                                            <td class="client-table-first-td">999</td>
-                                            <td class="client-table-second-td">Pieprz Czarny</td>
-                                            <td class="client-table-third-td">500g</td>
-                                            <td class="client-table-4th-td">N/A</td>
-                                            <td class="client-table-5th-td">25.99zł</td>
-                                            <td class="client-table-6th-td">Przyprawy</td>
-                                            <td class="client-table-7th-td">Pieprz Czarny(500g)</td>
-                                            <td class="client-table-9th-td"><a href="" title="Zmień dane"><button class="submit-button-client-table" type="button">Edytuj</button></a></td>
-                                            <td class="client-table-10th-td"><a href="" title"Usuń"><button class="submit-button-client-table" type="button">Usuń</button></a></td>
-                                        </tr>                          
-                                    </table>
+                                    <table id="client-table">';
+                                      
+                                       $db = new DataBase("localhost", "root", "", "hurtownia");
+                                        $row = $db->selectFromDatabase("SELECT * FROM products");
+                                        for($i = 1; $i<=$row[1]; $i++){
+                                            $usr[$i] = new Product($row[0][$i-1]['id'], $row[0][$i-1]['name'], $row[0][$i-1]['weight'], $row[0][$i-1]['volume'], $row[0][$i-1]['price'], $row[0][$i-1]['category'], $row[0][$i-1]['description']);
+                                            $usr[$i]->makeProductTableRow($i);
+                                        }  
+                
+                              echo '</table>
                                 </section>
                                 <section id="client-buttons-section">
                                     <div class="div-285">
