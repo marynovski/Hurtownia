@@ -1,0 +1,178 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body{
+                font-size: 20px;
+                color: #FFF;
+            }
+#content{
+    width: 1140px;
+    height: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #2C2C2C;
+    padding: 30px;
+    color: #FFF;
+}
+.data-form-section{
+    width: 285px;
+    height: 440px;
+    float: left;
+}
+#adress-data-form-section{
+    width: 570px;
+    height: 440px;
+    float: left;
+}
+
+#adress-data-form-header{
+    width: 570px;
+    height: 45px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 5px;
+}
+            
+.user-data-form-header{
+    width: 285px;
+    height: 45px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 5px;
+}            
+
+.adress-data-form-side{
+    width: 284px;
+    height: 320px;
+    padding-top: 20px;
+    float: left;
+    text-align: center;
+}
+            
+.adress-data-form-side:nth-child(2){
+    border-right: 1px solid #FFF;
+}
+            
+#adress-data-form-button-section{
+    width: 570px;
+    height: 40px;
+    padding-top: 10px;
+    clear: both;
+    text-align: center;
+}
+            
+.user-data-form-button-section{
+    width: 285px;
+    height: 40px;
+    padding-top: 10px;
+    clear: both;
+    text-align: center;
+}
+.user-data-form-inputs{
+    width: 285px;
+    height: 320px;
+    padding-top: 20px;
+    text-align: center;
+}
+.border-line{
+    border-right: 1px solid #FFF;
+}
+            label{
+                display: block;
+            }    
+            .input-text{
+    height: 15px;
+    padding: 5px;
+}
+         
+            
+            
+            .submit-button{
+                -webkit-border-radius: 28;
+                -moz-border-radius: 28;
+                border-radius: 28px;
+                width: 100px;
+                height: 30px;
+                border: none;
+                cursor: pointer;
+                transition-duration: 0.5s;
+            }
+        </style>
+    </head>
+<body>
+
+<main id="content">
+    
+    <section id="adress-data-form-section">
+        <header id="adress-data-form-header">Twoje dane:</header>
+        <form action="" method="post">
+            <div class="adress-data-form-side">
+                <label for="name">Imię:</label>
+                <input class="input-text" id="name" type="text" name="name"><br><br>
+
+                <label for="surname">Nazwisko:</label>
+                <input class="input-text" id="surname" type="text" name="surname"><br><br>
+
+                <label for="adress">Adres:</label>
+                <input class="input-text" id="adress" type="text" name="adress"><br><br>
+
+                <label for="city">Miejscowość</label>
+                <input class="input-text" id="city" type="text" name="city">
+            </div>
+            <div class="adress-data-form-side">
+                <label for="phone">Nr telefonu:</label>
+                <input class="input-text" id="phone" type="number" name="phone">
+            </div>
+            <section id="adress-data-form-button-section">
+                <input class="submit-button" type="submit" value="Zapisz dane">
+            </section>
+        </form>
+    </section>
+    
+    <section class="data-form-section">
+        <header class="user-data-form-header ">Zmiana hasła:</header>
+        <form action="" method="post">
+            <section class="user-data-form-inputs border-line">
+                <label for="password">Twoje hasło:</label>
+                <input class="input-text" id="password" type="password" name="password"><br><br>
+                
+                <label for="passwordRep">Powtórz hasło:</label>
+                <input class="input-text" id="passwordRep" type="password" name="passwordRep"><br><br>
+                
+                <label for="newPassword">Nowe hasło:</label>
+                <input class="input-text" id="newPassword" type="password" name="newPassword"><br><br>
+                
+                <label for="newPasswordRep">Powtórz nowe hasło:</label>
+                <input class="input-text" id="newPasswordRep" type="password" name="newPasswordRep"><br><br>
+            </section>
+            <section class="user-data-form-button-section">
+                <input class="submit-button" type="submit" value="Zmień hasło">
+            </section>
+        </form>
+    </section>
+    <section class="data-form-section">
+        <header class="user-data-form-header">Zmiana E-maila:</header>
+        <form action="" method="post">
+            <section class="user-data-form-inputs">
+                <label for="email">Twój aktualny e-mail:</label>
+                <input class="input-text" id="email" type="email" name="email"><br><br>
+                
+                <label for="newEmail">Nowy e-mail:</label>
+                <input class="input-text" id="newEmail" type="email" name="newEmail"><br><br>
+            </section>
+            <section class="user-data-form-button-section">
+                <input class="submit-button" type="submit" value="Zmień e-mail">
+            </section>
+        </form>
+    </section>
+    
+</main>    
+    
+</body>
+</html>

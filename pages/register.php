@@ -1,19 +1,12 @@
-<html>
+<?php
 
-<body>
+include_once("../php/PageLoader.class.php");
 
-<h1><?php echo __FILE__; ?></h1>
+PageLoader::ModuleLoader("html_start");
+PageLoader::ModuleLoader("header");
+PageLoader::ModuleLoader("nav");
+PageLoader::ModuleLoader("register");
+PageLoader::ModuleLoader("footer");
+PageLoader::ModuleLoader("html_end");
 
-<a href="strona-główna">Główna</a>
-<a href="rejestracja">Rejestracja</a>
-<a href="klienci">Klienci</a>
-<a href="zamówienia">Zamówienia</a>
-<a href="profil">Profil</a>
-<a href="produkty">Produkty</a>
-
-
-
-</body>
-
-
-</html>
+?>
