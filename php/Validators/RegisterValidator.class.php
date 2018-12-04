@@ -5,7 +5,7 @@ abstract class RegisterValidator{
     static public function loginLenghtIsValid($login){
         
         if(strlen($login) < 3 || strlen($login) > 30){
-            $_SESSION["loginLengthError"] = '<span class="error">Login musi zawierać od 3-30 znaków!</span><br>';
+            $_SESSION["loginLengthError"] = '<span class="error">Login musi zawierać 3-30 znaków!</span><br>';
             return false;
         }
         else{
@@ -13,6 +13,68 @@ abstract class RegisterValidator{
         }
         
     }
+    
+    static public function passwordLengthIsValid($password){
+        if(strlen($password) < 8 || strlen($password) > 30){
+            $_SESSION["passwordLengthError"] = '<span class="error">Hasło musi zawierać 8-50 znaków!</span><br>';
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    
+    static public function nameLengthIsValid($password){
+        if(strlen($name) < 8 || strlen($name) > 30){
+            $_SESSION["nameLengthError"] = '<span class="error">Imię musi zawierać 8-50 znaków!</span><br>';
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    
+    static public function surnameLengthIsValid($surname){
+        if(strlen($surname) < 8 || strlen($surname) > 30){
+            $_SESSION["surnameLengthError"] = '<span class="error">Nazwisko musi zawierać 8-50 znaków!</span><br>';
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    
+    static public function cityLengthIsValid($city){
+        if(strlen($city) < 8 || strlen($city) > 30){
+            $_SESSION["cityLengthError"] = '<span class="error">Miasto musi zawierać 8-50 znaków!</span><br>';
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    
+    static public function adressLengthIsValid($adress){
+        if(strlen($adress) < 8 || strlen($adress) > 30){
+            $_SESSION["adressLengthError"] = '<span class="error">Adres musi zawierać 8-50 znaków!</span><br>';
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    
+    static public function emailLengthIsValid($email){
+        if(strlen($email) < 8 || strlen($email) > 30){
+            $_SESSION["emailLengthError"] = '<span class="error">E-mail musi zawierać 8-50 znaków!</span><br>';
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    
+    
     
     static private function nonSpecialChars($var){
         if(preg_match('/[!@#$%\-\'\"{}\[\].,:;<>?\/+()^&*_|=]/', $var)){
