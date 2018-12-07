@@ -13,6 +13,8 @@
  */
 abstract class RegisterSanitize {
     
-    
+    static public function sanitizeLogin($login){
+        
+    }
     
 }
