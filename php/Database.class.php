@@ -62,7 +62,19 @@ class DataBase{
                                 
 				exit(1);
 			}
-	}   
+	}
+        
+        public function insertIntoDatabase($query){
+            if($connection = $this->connect()){
+			
+				$result = $connection->query($query);
+                                $connection->close();
+                                return true;                                         			
+			}
+			else{			
+				return false;
+			}
+        }
 }
 	
 

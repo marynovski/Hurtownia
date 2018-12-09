@@ -43,7 +43,7 @@ class User {
             .   '   <td class="client-table-5th-td">'.$this->city.'</td>'
             .   '   <td class="client-table-6th-td">'.$this->phone.'</td>'
             .   '   <td class="client-table-7th-td">'.$this->email.'</td>'
-            .   '   <td class="client-table-8th-td">'.$this->email.'</td>'
+            .   '   <td class="client-table-8th-td">'.$this->role.'</td>'
             .   '   <td class="client-table-9th-td"><a href="" title="Zmień dane"><button class="submit-button-client-table" type="button">Edytuj</button></a></td>'
             .   '   <td class="client-table-10th-td"><a href="../php/deleteFromDatabase.php?id='.$this->id.'&table=users&page=clients" title"Usuń"><button class="submit-button-client-table" type="button">Usuń</button></a></td>'
             .   '</tr>';         

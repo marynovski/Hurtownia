@@ -2,6 +2,15 @@
 session_start();
 abstract class RegisterValidator{
     
+    static public function isEmpty($var){
+        if(empty($var) || !isset($var)){
+            $_SESSION['emptyFieldError'] = '<span class="error">Wypełnij wszystkie pola!</span>';
+            return true;
+        } else{
+            return false;
+        }
+    }
+    
     static public function loginLenghtIsValid($login){
         
         if(strlen($login) < 3 || strlen($login) > 30){
@@ -24,8 +33,8 @@ abstract class RegisterValidator{
         }
     }
     
-    static public function nameLengthIsValid($password){
-        if(strlen($name) < 8 || strlen($name) > 30){
+    static public function nameLengthIsValid($name){
+        if(strlen($name) > 30){
             $_SESSION["nameLengthError"] = '<span class="error">Imię musi zawierać 8-50 znaków!</span><br>';
             return false;
         }
@@ -35,7 +44,7 @@ abstract class RegisterValidator{
     }
     
     static public function surnameLengthIsValid($surname){
-        if(strlen($surname) < 8 || strlen($surname) > 30){
+        if(strlen($surname) > 30){
             $_SESSION["surnameLengthError"] = '<span class="error">Nazwisko musi zawierać 8-50 znaków!</span><br>';
             return false;
         }
@@ -45,7 +54,7 @@ abstract class RegisterValidator{
     }
     
     static public function cityLengthIsValid($city){
-        if(strlen($city) < 8 || strlen($city) > 30){
+        if(strlen($city) > 30){
             $_SESSION["cityLengthError"] = '<span class="error">Miasto musi zawierać 8-50 znaków!</span><br>';
             return false;
         }
@@ -55,7 +64,7 @@ abstract class RegisterValidator{
     }
     
     static public function adressLengthIsValid($adress){
-        if(strlen($adress) < 8 || strlen($adress) > 30){
+        if(strlen($adress) > 30){
             $_SESSION["adressLengthError"] = '<span class="error">Adres musi zawierać 8-50 znaków!</span><br>';
             return false;
         }
@@ -65,7 +74,7 @@ abstract class RegisterValidator{
     }
     
     static public function emailLengthIsValid($email){
-        if(strlen($email) < 8 || strlen($email) > 30){
+        if(strlen($email) > 30){
             $_SESSION["emailLengthError"] = '<span class="error">E-mail musi zawierać 8-50 znaków!</span><br>';
             return false;
         }
@@ -87,7 +96,7 @@ abstract class RegisterValidator{
     static public function loginSpecialChars($login){
         
         if(self::nonSpecialChars($login)){
-            $_SESSION['loginSpecialCharsError'] = '<span class="error">Login zawiera niedozwolone znaki!</span><br>';
+            $_SESSION['loginSpecialCharsError'] = '<span class="error">Niepoprawny login!</span>';
             return false;
         } else{
             return true;
@@ -96,7 +105,7 @@ abstract class RegisterValidator{
     
     static public function passwordSpecialChars($password){
        if(preg_match('/[#%\-\'\"{}\[\].,:;<>?\/+()^&*|=]/', $password)){
-            $_SESSION['passwordSpecialCharsError'] = '<span class="error">Dozwolone znaki: ! @ $ _</span><br>';
+            $_SESSION['passwordSpecialCharsError'] = '<span class="error">Dozwolone znaki: ! @ $ _</span>';
             return false;
         } else{
             return true;
@@ -105,7 +114,7 @@ abstract class RegisterValidator{
     
     static public function nameSpecialChars($name){
         if(self::nonSpecialChars($name)){
-            $_SESSION['nameSpecialCharsError'] = '<span class="error">Imię zawiera niedozwolone znaki!</span><br>';
+            $_SESSION['nameSpecialCharsError'] = '<span class="error">Niepoprawne imię!</span>';
             return false;
         } else{
             return true;
@@ -114,7 +123,7 @@ abstract class RegisterValidator{
     
     static public function surnameSpecialChars($surname){
         if(self::nonSpecialChars($surname)){
-            $_SESSION['surnameSpecialCharsError'] = '<span class="error">Nazwisko zawiera niedozwolone znaki!</span><br>';
+            $_SESSION['surnameSpecialCharsError'] = '<span class="error">Niepoprawne nazwisko!</span>';
             return false;
         } else{
             return true;
@@ -123,7 +132,7 @@ abstract class RegisterValidator{
     
     static public function citySpecialChars($city){
         if(self::nonSpecialChars($city)){
-            $_SESSION['citySpecialCharsError'] = '<span class="error">Miejscowość zawiera niedozwolone znaki!</span><br>';
+            $_SESSION['citySpecialCharsError'] = '<span class="error">Niepoprawna miejscowośc!</span>';
             return false;
         } else{
             return true;
@@ -134,20 +143,28 @@ abstract class RegisterValidator{
         if(preg_match('/^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9\-.]+\.[a-zA-Z]{2,4}$/', $email)){
             return true;
         } else{
-            $_SESSION['emailSpecialCharsError'] = '<span class="error">Niepoprawny email!</span><br>';
+            $_SESSION['emailSpecialCharsError'] = '<span class="error">Niepoprawny email!</span>';
             return false;
         }
     }
     
     static public function adressSpecialChars($adress){
         if(preg_match('/[!@$_#%\-\'\"{}\[\].,:;<>?+()^&*|=]/', $adress)){
-            $_SESSION['adressSpecialCharsError'] = '<span class="error">Adres jest niepoprawny!</span><br>';
+            $_SESSION['adressSpecialCharsError'] = '<span class="error">Adres jest niepoprawny!</span>';
             return false;
         } else{
             return true;
         }
     }
-   
+    
+    static public function passwordsAreEqual($password, $passwordRep){
+        if($password === $passwordRep){
+            return true;
+        } else{
+            $_SESSION['passwordNotEqualError'] = '<span class="error">Hasła nie są jednakowe!</span>';
+            return false;
+        }
+    }
     
     
 }
@@ -155,7 +172,7 @@ abstract class RegisterValidator{
 
 
 
- 
+/*
 $login = '4marynovski';
 $password = '4@_Honolulu';
 $name = "Kamil";
@@ -226,7 +243,7 @@ if(!RegisterValidator::adressSpecialChars($adress)){
 else{
     echo '<span style="color: green">OK!</span><br>';
 }
-
+*/
 
 
 

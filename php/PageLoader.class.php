@@ -1,4 +1,5 @@
 <?php
+session_start();
  include_once("../php/User.class.php");
   include_once("../php/Product.class.php");
  include_once("../php/Database.class.php");
@@ -293,33 +294,80 @@ class PageLoader {
                 echo         '<main id="content">'
                         .    '<section id="register-form-section">'
                         .    '<header id="register-form-header">Tworzenie konta</header>'
-                        .    '<form action="" method="post">'
+                        .    '<form action="../php/Execute/registerSanitize_Validate.php" method="post">'
                         .    '   <section id="form-side">'
                         .    '       <label for="login">Login:</label>'
-                        .    '       <input class="input-text" id="login" type="text" name="login"><br>'
-                        .    '       <span class="error">Niepoprawny login!</span><br>'
+                        .    '       <input class="input-text" id="login" type="text" name="login"><br>';
+                
+                                    if(isset($_SESSION['loginSpecialCharsError'])){
+                                        echo $_SESSION['loginSpecialCharsError'];
+                                        unset($_SESSION['loginSpecialCharsError']);
+                                    }
 
+                echo         '       <br>'
                         .    '       <label for="email">E-mail:</label>'
-                        .    '       <input class="input-text" id="email" type="email" name="email"><br><br>'
+                        .    '       <input class="input-text" id="email" type="email" name="email"><br>';
+                
+                                    if(isset($_SESSION['emailSpecialCharsError'])){
+                                        echo $_SESSION['emailSpecialCharsError'];
+                                        unset($_SESSION['emailSpecialCharsError']);
+                                    }
 
+                echo         '       <br>'
                         .    '        <label for="password">Hasło:</label>'
-                        .    '        <input class="input-text" id="password" type="password" name="password"><br><br>'
+                        .    '        <input class="input-text" id="password" type="password" name="password"><br>';
+                                    if(isset($_SESSION['passwordSpecialCharsError'])){
+                                        echo $_SESSION['passwordSpecialCharsError'];
+                                        unset($_SESSION['passwordSpecialCharsError']);
+                                    }
 
+                echo         '       <br>'
                         .    '        <label for="passwordRep">Powtórz hasło:</label>'
-                        .    '        <input class="input-text" id="passwordRep" type="password" name="passwordRep">'
+                        .    '        <input class="input-text" id="passwordRep" type="password" name="passwordRep"><br>';
+                                    if(isset($_SESSION['passwordNotEqualError'])){
+                                        echo $_SESSION['passwordNotEqualError'];
+                                        unset($_SESSION['passwordNotEqualError']);
+                                    }
+
+                echo         '       <br>'                
                         .    '    </section>'
                         .    '    <section id="form-side">'
                         .    '        <label for="name">Imię:</label>'
-                        .    '        <input class="input-text" id="name" type="text" name="name"><br><br>'
+                        .    '        <input class="input-text" id="name" type="text" name="name"><br>';
+                                    
+                                        if(isset($_SESSION['nameSpecialCharsError'])){
+                                        echo $_SESSION['nameSpecialCharsError'];
+                                        unset($_SESSION['nameSpecialCharsError']);
+                                    }
 
+                echo         '       <br>'
                         .    '         <label for="surname">Nazwisko:</label>'
-                        .    '         <input class="input-text" id="surname" type="text" name="surname"><br><br>'
+                        .    '         <input class="input-text" id="surname" type="text" name="surname"><br>';
+                
+                                    if(isset($_SESSION['surnameSpecialCharsError'])){
+                                        echo $_SESSION['surnameSpecialCharsError'];
+                                        unset($_SESSION['surnameSpecialCharsError']);
+                                    }
 
+                echo         '       <br>'
                         .    '         <label for="adress">Adres:</label>'
-                        .    '         <input class="input-text" id="adress" type="text" name="adress"><br><br>'
+                        .    '         <input class="input-text" id="adress" type="text" name="adress"><br>';
 
+                                    if(isset($_SESSION['adressSpecialCharsError'])){
+                                        echo $_SESSION['adressSpecialCharsError'];
+                                        unset($_SESSION['adressSpecialCharsError']);
+                                    }
+
+                echo         '       <br>'
                         .    '         <label for="city">Miejscowość</label>'
-                        .    '         <input class="input-text" id="city" type="text" name="city">'
+                        .    '         <input class="input-text" id="city" type="text" name="city"><br>';
+                
+                                    if(isset($_SESSION['citySpecialCharsError'])){
+                                        echo $_SESSION['citySpecialCharsError'];
+                                        unset($_SESSION['citySpecialCharsError']);
+                                    }
+
+                echo         '       <br>'
                         .    '      </section>'
                         .    '     <section id="register-form-button-section">'
                         .    '         <input class="submit-button" type="submit" value="Stwórz konto">'
@@ -327,6 +375,61 @@ class PageLoader {
                         .    '</form>'
                         .    '</section>'
                         .    '</main>';
+                
+                               if(isset($_SESSION['loginLengthError'])){
+                                   echo $_SESSION['loginLengthError'];
+                                   unset($_SESSION['loginLengthError']);
+                               }
+                               
+                               if(isset($_SESSION['passwordLengthError'])){
+                                   echo $_SESSION['passwordLengthError'];
+                                   unset($_SESSION['passwordLengthError']);
+                               }
+                               
+                               if(isset($_SESSION['emailLengthError'])){
+                                   echo $_SESSION['emailLengthError'];
+                                   unset($_SESSION['emailLengthError']);
+                               }
+                               
+                               if(isset($_SESSION['nameLengthError'])){
+                                   echo $_SESSION['nameLengthError'];
+                                   unset($_SESSION['nameLengthError']);
+                               }
+                               
+                               if(isset($_SESSION['surnameLengthError'])){
+                                   echo $_SESSION['surnameLengthError'];
+                                   unset($_SESSION['surnameLengthError']);
+                               }
+                               
+                               if(isset($_SESSION['adressLengthError'])){
+                                   echo $_SESSION['adressLengthError'];
+                                   unset($_SESSION['adressLengthError']);
+                               }
+                               
+                               if(isset($_SESSION['cityLengthError'])){
+                                   echo $_SESSION['cityLengthError'];
+                                   unset($_SESSION['cityLengthError']);
+                               }
+                               
+                               if(isset($_SESSION['emptyFieldError'])){
+                                   echo $_SESSION['emptyFieldError'];
+                                   unset($_SESSION['emptyFieldError']);
+                               }
+                               
+                               if(isset($_SESSION['accountExists'])){
+                                   echo $_SESSION['accountExists'];
+                                   unset($_SESSION['accountExists']);
+                               }
+                               if(isset($_SESSION['UserAddedSuccess'])){
+                                   echo $_SESSION['UserAddedSuccess'];
+                                   unset($_SESSION['UserAddedSuccess']);
+                               }
+                               if(isset($_SESSION['UserAddedError'])){
+                                   echo $_SESSION['UserAddedError'];
+                                   unset($_SESSION['UserAddedError']);
+                               }
+                               
+                
                 break;
             
             case 'addProduct':

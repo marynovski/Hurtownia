@@ -13,8 +13,27 @@
  */
 abstract class RegisterSanitize {
     
-    static public function sanitizeLogin($login){
+    static public function sanitizeHtmlEntities($var){
+        $trueVar = $var;
+        $var = htmlentities($var, ENT_QUOTES);
+
+        if($trueVar === $var){
+            return true;
+        } else{
+            return false;
+        }
+    }
+    
+    static public function cutSpacesFromString($string){
+        $trueString = $string;
+        $string = str_replace(' ', '', $string);
         
+        if($trueString === $string){
+            return true;
+        } else{
+            return false;
+        }
     }
     
 }
+

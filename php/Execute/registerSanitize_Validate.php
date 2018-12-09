@@ -4,6 +4,7 @@ session_start();
 
 include_once('../Validators/RegisterSanitize.class.php');
 include_once('../Validators/RegisterValidator.class.php');
+include_once('../Database.class.php');
 
 $login          =   $_POST['login'];
 $password       =   $_POST['password'];
@@ -60,10 +61,35 @@ if(RegisterValidator::isEmpty($surname)){$dataIsValid = false;}
 if(RegisterValidator::isEmpty($adress)){$dataIsValid = false;}
 if(RegisterValidator::isEmpty($city)){$dataIsValid = false;}
 
+if($dataIsValid == true){
+    $db = new DataBase("localhost", "root", "", "hurtownia");
+    $query = 'SELECT * FROM `users` WHERE login="'.$login.'"';
+    $row = $db->selectFromDatabase($query);
+ 
+    if($row[1] > 0){
+        $dataIsValid = false;
+        $_SESSION['accountExists'] = '<span class="error">Użytkownik o podanym loginie już istnieje!</span>';
+    }
+    
+    $query = 'SELECT * FROM `users` WHERE email="'.$email.'"';
+    $row = $db->selectFromDatabase($query);
+    if($row[1] > 0){
+        $dataIsValid = false;
+        $_SESSION['accountExists'] = '<span class="error">Użytkownik o podanym email już istnieje!</span>';
+    }     
+}
+
+
+
 if($dataIsValid){
-    echo "ok";
-    $_SESSION['UserAddedSuccess'] = '<span style="color: green;">Konto zostało utworzone!</span>';
-    exit(0);
+    $query = 'INSERT INTO users (id, login, password, name, surname, adress, city, phone, email, role) VALUES (NULL, "'.$login.'", "'.$password.'", "'.$name.'", "'.$surname.'", "'.$adress.'", "'.$city.'", 0, "'.$email.'", "Klient")';
+    if($db->insertIntoDatabase($query)){
+        $_SESSION['UserAddedSuccess'] = '<span style="color: green;">Konto zostało utworzone!</span>';
+        header('Location: ../../pages/rejestracja');
+    } else{
+        $_SESSION['UserAddError'] = '<span class="error">Nie udało się dodać użytkownika!</span>';
+        header('Location: ../../pages/rejestracja');
+    }
 } else{
     header('Location: ../../pages/rejestracja');
 }
