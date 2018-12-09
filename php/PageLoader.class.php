@@ -1,8 +1,8 @@
 <?php
 session_start();
- include_once("../php/User.class.php");
-  include_once("../php/Product.class.php");
- include_once("../php/Database.class.php");
+ include_once("../php/Model/User.class.php");
+ include_once("../php/Model/Product.class.php");
+ include_once("../php/Model/Database.class.php");
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -37,9 +37,13 @@ class PageLoader {
                 break;
             
             case 'nav':
-                echo        '<nav id="nav">'
-                        .   '       <a href="strona-główna" title="Strona główna">          <nav class="nav-tile">Strona Główna     </nav></a>'
-                        .   '       <a href="profil" title="Twój profil">                   <nav class="nav-tile">Profil            </nav></a>'
+                echo        '<nav id="nav">';
+                            if(!isset($_SESSION['logged']) || $_SESSION['logged'] === false){ 
+                echo        '       <a href="strona-główna" title="Strona główna">          <nav class="nav-tile">Strona Główna     </nav></a>';                
+                            } else{
+                echo        '       <a href="../php/Execute/logout.php" title="Strona główna">     <nav class="nav-tile">Wyloguj           </nav></a>';                
+                            }
+                echo        '       <a href="profil" title="Twój profil">                   <nav class="nav-tile">Profil            </nav></a>'
                         .   '       <a href="klienci" title="Zarządzanie klientami">        <nav class="nav-tile">Klienci           </nav></a>'
                         .   '       <a href="produkty" title="Zarządzanie produktami">      <nav class="nav-tile">Produkty          </nav></a>'
                         .   '       <a href="zamówienia" title="Zarządzanie zamówieniami">  <nav class="nav-tile">Zamówienia        </nav></a>'
@@ -47,9 +51,10 @@ class PageLoader {
                 break;
              
             case 'home':
+                if(!isset($_SESSION['logged']) || $_SESSION['logged'] === false){ 
                 echo        '<main id="content">'
                         .   '   <header><h2>Witaj w SZZ, zaloguj się, aby móc korzystać z funkcji aplikacji.</h2></header><br> '
-                        .   '   <form action="" method="post">'
+                        .   '   <form action="../php/Execute/login.php" method="post">'
                         .   '       <label for="login">Login:</label>'
                         .   '       <input class="input-text" id="login" type="text" name="login"><br><br>'
                         .   '       <label for="password">Hasło:</label>'
@@ -60,6 +65,12 @@ class PageLoader {
                         .   '   <a href="rejestracja">Nie masz konta? Stwórz je!</a><br>'
                         .   '   <a href="">Zapomniałeś hasła?</a>'
                         .   '</main>';
+                } else{
+                
+                echo        '<main id="content">'
+                        .   '<header><h2>Witaj '.$_SESSION['userName'].'!</h2></header><br>'   
+                        .   '</main>';    
+                }
                 break;
             
             case 'clients':

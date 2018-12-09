@@ -4,7 +4,7 @@ session_start();
 
 include_once('../Validators/RegisterSanitize.class.php');
 include_once('../Validators/RegisterValidator.class.php');
-include_once('../Database.class.php');
+include_once('../Model/Database.class.php');
 
 $login          =   $_POST['login'];
 $password       =   $_POST['password'];

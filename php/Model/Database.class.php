@@ -17,7 +17,7 @@ class DataBase{
 	
 	private function connect(){
 	
-		$dbConnectId = @new mysqli($this->dbHost, $this->dbUser, $this->dbPass, $this->dbName);
+		$dbConnectId = new mysqli($this->dbHost, $this->dbUser, $this->dbPass, $this->dbName);
 		
 		if($dbConnectId->connect_errno != 0){
 		
